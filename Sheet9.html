@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Week 1 - Sheet 9</title>
+</head>
+<body>
+
+    
+<h1>Kiểm tra định dạng số điện thoại</h1>
+
+
+<input type="text" id="phoneNumberInput" placeholder="Nhập số điện thoại...">
+<button onclick="validatePhoneNumber()">Kiểm tra</button>
+
+<script>
+function validatePhoneNumber() {
+    var phoneNumber = document.getElementById("phoneNumberInput").value.trim();
+    // var phoneRegex = /^(\(\+?84\)|0)(3|38|39|70|76|77|78|79|81|82|83|84|85|86|88|89|91|94|96|97|98|99)\d{7}$/;
+    var phoneRegex = /^(\(\+?84\)|0)\d{9}$/;
+    if (phoneRegex.test(phoneNumber)) {
+        alert("Số điện thoại hợp lệ.");
+        console.log(phoneNumber);
+    } else {
+        alert("Số điện thoại không hợp lệ.");
+    }
+}
+</script>
+
+</body>
+</html>

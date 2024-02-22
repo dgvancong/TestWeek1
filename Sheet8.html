@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Week 1 - Sheet 9</title>
+</head>
+<body>
+
+<h1>Kiểm tra chuỗi nhập</h1>
+
+<!-- Form để nhập chuỗi và chuỗi con cần kiểm tra -->
+<label>Nhập chuỗi:</label>
+<input type="text" id="mainStringInput" placeholder="Nhập chuỗi..."><br><br>
+
+<label>Nhập chuỗi con:</label>
+<input type="text" id="subStringInput" placeholder="Nhập chuỗi con..."><br><br>
+
+<button onclick="checkContains()">Kiểm tra chuỗi chứa chuỗi con</button>
+<button onclick="findPosition()">Tìm vị trí của chuỗi con</button>
+<button onclick="countOccurrences()">Đếm số lần xuất hiện của chuỗi con</button>
+
+<p id="result"></p>
+
+<script>
+    
+// Kiểm tra chuỗi có chứa chuỗi con không
+function checkContains() {
+    var mainString = document.getElementById("mainStringInput").value;
+    var subString = document.getElementById("subStringInput").value;
+    var result = mainString.includes(subString) ? "Chuỗi chứa chuỗi con." : "Chuỗi không chứa chuỗi con.";
+    document.getElementById("result").innerText = result;
+}
+
+// Tìm vị trí của chuỗi con
+function findPosition() {
+    var mainString = document.getElementById("mainStringInput").value;
+    var subString = document.getElementById("subStringInput").value;
+    var position = mainString.indexOf(subString);
+    if (position !== -1) {
+        document.getElementById("result").innerText = "Chuỗi con được tìm thấy ở vị trí " + position;
+    } else {
+        document.getElementById("result").innerText = "Chuỗi con không được tìm thấy trong chuỗi.";
+    }
+}
+
+// Đếm số lần xuất hiện của chuỗi con
+function countOccurrences() {
+    var mainString = document.getElementById("mainStringInput").value;
+    var subString = document.getElementById("subStringInput").value;
+    var count = 0;
+    var position = mainString.indexOf(subString);
+    while (position !== -1) {
+        count++;
+        position = mainString.indexOf(subString, position + 1);
+    }
+    document.getElementById("result").innerText = "Số lần xuất hiện của chuỗi con: " + count;
+}
+</script>
+
+</body>
+</html>
